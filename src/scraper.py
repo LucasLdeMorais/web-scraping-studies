@@ -38,13 +38,13 @@ def scrape():
         post_text = ""
 
         #pega todos os paragrafos do conteúdo
-        post_text.join(get_paragraphs(post_content_div))
+        post_text.join([get_paragraphs(post_content_div)])
 
         #pega todos as listas do conteúdo
-        post_text.join(
+        post_text.join([
             get_lists('ol', post_content_div), 
             get_lists('ul', post_content_div)
-        )
+        ])
 
         #adiciona no array de posts formatados
         posts_obj_arr.append(Noticia(post_titulo,post_img,post_text))

@@ -33,20 +33,20 @@ def get_lists(list_type, html_content):
     if (len(all_list_elements) > 0):
         for list in all_list_elements:
             if(list_type == "ol"):
-                text.join("\n","listaOrd:","\n",)
+                text.join(["\n","listaOrd:","\n"])
             elif(list_type == "ul"):
-                text.join("\n","listaUnord:","\n",)
+                text.join(["\n","listaUnord:","\n"])
 
             all_li_elements = list.find_all('li')
 
             for li in all_li_elements:
                 if (all_li_elements.index(li) != 0):
-                    text.join("\n")
-                text.join(
+                    text.join(["\n"])
+                text.join([
                     "itemLista",str(all_li_elements.index(li) + 1),
                     ":",
                     li.get_text(strip=True)
-                )
+                ])
     
     return text
 
@@ -60,10 +60,10 @@ def get_paragraphs(html_content):
         if (all_p_elements.index(p_element) != 0):
             text = text + "\n"
 
-    text.join(
+    text.join([
         # Extrair texto do elemento <p>
         p_element.get_text(strip=True)
-    )
+    ])
     
     return text
     
